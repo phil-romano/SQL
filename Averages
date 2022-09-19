@@ -1,0 +1,16 @@
+SELECT 
+MIN(rental_rate) AS min_rent,
+MAX(rental_rate) AS max_rent,
+AVG(rental_Rate) AS avg_rent_rate,
+MIN(release_year) AS earliest_release,
+MAX(release_year)AS newest_release,
+MIN(length) AS shortest_length,
+MAX(length) AS longest_length,
+AVG(length) AS average_length,
+MIN(rental_duration) AS min_rental_duration,
+MAX(rental_duration) AS max_rental_duration,
+AVG(rental_duration) AS average_rental_duration,
+MIN(replacement_cost) AS min_replacement_cost,
+MAX(replacement_cost) AS max_replacement_cost,
+CAST(AVG(replacement_cost) AS DECIMAL(10,2)) AS avg_replacement_cost
+FROM film
