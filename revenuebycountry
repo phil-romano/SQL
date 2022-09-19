@@ -1,0 +1,14 @@
+SELECT SUM(D.amount), J.country
+FROM film A
+INNER JOIN inventory B on A.film_id = B.film_id
+INNER JOIN rental C on B.inventory_id = C.inventory_id
+INNER JOIN payment D on C.rental_id = D.rental_id
+INNER JOIN film_category E on A.film_id = E.film_id
+INNER JOIN category F on E.category_id = F.category_id
+INNER JOIN customer G on C.customer_id = G.customer_id
+INNER JOIN address H on G.address_id = H.address_id
+INNER JOIN city I on H.city_id = I.city_id
+INNER JOIN country J on I.country_id = J.country_id
+GROUP BY J.country
+ORDER BY SUM(D.amount) DESC
+LIMIT 50
